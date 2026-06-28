@@ -1,0 +1,12 @@
+node_modules/
+dist/
+generated/
+.env
+.env.local
+*.log
+# SQLite database (local dev)
+backend/data.db
+backend/data.db-wal
+backend/data.db-shm
+# Railway persistent volume (will be mounted separately)
+/data/

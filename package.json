@@ -1,0 +1,20 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "node -e \"if (process.env.npm_config_user_agent && !process.env.npm_config_user_agent.includes('pnpm')) { console.error('Use pnpm instead'); process.exit(1); }\"",
+    "dev": "pnpm dev:frontend",
+    "dev:frontend": "pnpm --filter @workspace/frontend run dev",
+    "dev:all": "concurrently --names backend,frontend --prefix-colors blue,green \"node backend/index.js\" \"pnpm dev:frontend\"",
+    "dev:backend": "node backend/index.js",
+    "build": "pnpm --filter @workspace/frontend run build",
+    "start": "node backend/index.js",
+    "typecheck": "pnpm -r --if-present run typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2"
+  }
+}
